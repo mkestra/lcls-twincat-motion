@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="DUT_MotionStageNCParams" Id="{b38ca476-dbb9-4b4a-a811-68bc4bdb9b25}">
+    <Declaration><![CDATA[TYPE DUT_MotionStageNCParams :
+STRUCT
+    // NC Forward Limit Switch: TRUE if ok to move
+    {attribute 'pytmc' := '
+        pv: FEncOffset
+        io: i
+        field: ZNAM FALSE
+        field: ONAM TRUE
+        field: DESC FALSE if forward limit hit
+    '}
+    fEncOffset AT %I*: LREAL;
+    // NC Backward Limit Switch: TRUE if ok to move
+    {attribute 'pytmc' := '
+        pv: fEncScaleFactor
+        io: i
+        field: ZNAM FALSE
+        field: ONAM TRUE
+        field: DESC FALSE if reverse limit hit
+    '}
+    fEncScaleFactor AT %I*: LREAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

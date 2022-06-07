@@ -4,7 +4,7 @@
     <Declaration><![CDATA[TYPE DUT_MotionStage :
     // Defines the EPICS interface to moving a motor in TwinCAT
 STRUCT
-    (* Hardware *)
+(* Hardware *)
 
     // PLC Axis Reference
     Axis: AXIS_REF;
@@ -372,6 +372,13 @@ STRUCT
         field: DESC Position lag difference
     '}
     fPosDiff: LREAL;
+    //create parameters for struct of published PV's
+    {attribute 'pytmc' := '
+        pv: NC
+        io: i
+        field: DESC Position lag difference
+    '}
+    stMotionStageNCParams: DUT_MotionStageNCParams;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

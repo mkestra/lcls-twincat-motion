@@ -36,7 +36,9 @@ IF mcReadParams.ErrorID <> 0 THEN
     nLatchErrId := 0;
 END_IF
 bExecute R= mcReadParams.Done OR mcReadParams.Error;
-stMotionStage.bAxisParamsInit S= mcReadParams.Done;]]></ST>
+stMotionStage.bAxisParamsInit S= mcReadParams.Done;
+stMotionStage.stMotionStageNCParams.fEncOffset := stMotionStage.stAxisParameters.fEncOffset;
+stMotionStage.stMotionStageNCParams.fEncScaleFactor := stMotionStage.stAxisParameters.fEncScaleFactorInternal;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

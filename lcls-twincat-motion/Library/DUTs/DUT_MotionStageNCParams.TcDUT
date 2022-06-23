@@ -21,6 +21,7 @@ STRUCT
         field: DESC FALSE if reverse limit hit
     '}
     fEncScaleFactor AT %I*: LREAL;
+    //test
 END_STRUCT
 END_TYPE
 ]]></Declaration>
